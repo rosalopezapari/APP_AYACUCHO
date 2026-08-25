@@ -14,6 +14,7 @@ from src.views.perfil import VentanaPerfil
 from src.views.exportar import VentanaExportar
 from src.views.reportes import VentanaReportes
 from src.views.reserva import VentanaReserva
+from src.views.evento_cultural import VentanaEventoCultural
 
 
 class VentanaMenu:
@@ -66,6 +67,7 @@ class VentanaMenu:
         ttk.Button(frame, text=_("Transporte"), command=self.abrir_transporte).pack(fill=tk.X, pady=3)
         ttk.Button(frame, text=_("Hospedajes"), command=self.abrir_hospedaje).pack(fill=tk.X, pady=3)
         ttk.Button(frame, text=_("Reservas"), command=self.abrir_reserva).pack(fill=tk.X, pady=3)
+        ttk.Button(frame, text=_("Eventos Culturales y Peñas"), command=self.abrir_eventos_culturales).pack(fill=tk.X, pady=3)
         ttk.Button(frame, text=_("Historial de Actividades"), command=self.abrir_historial).pack(fill=tk.X, pady=3)
         ttk.Button(frame, text=_("Exportar Datos"), command=self.abrir_exportar).pack(fill=tk.X, pady=3)
         ttk.Button(frame, text=_("Reportes y Estadísticas"), command=self.abrir_reportes).pack(fill=tk.X, pady=3)
@@ -160,6 +162,12 @@ class VentanaMenu:
         historial_root = tk.Toplevel(self.root)
         VentanaHistorial(historial_root, self.ciudadano)
         historial_root.protocol("WM_DELETE_WINDOW", lambda: self.cerrar_hijo(historial_root))
+
+    def abrir_eventos_culturales(self):
+        self.root.withdraw()
+        eventos_root = tk.Toplevel(self.root)
+        VentanaEventoCultural(eventos_root)
+        eventos_root.protocol("WM_DELETE_WINDOW", lambda: self.cerrar_hijo(eventos_root))
 
     def _cargar_idiomas(self):
         from src.i18n import available_languages, current_lang

@@ -9,7 +9,7 @@ class VentanaInicio:
     def __init__(self, root):
         self.root = root
         self.root.title("Qory Ayacucho")
-        self.root.geometry("400x300")
+        self.root.geometry("400x350")
         self.root.resizable(False, False)
 
         frame = ttk.Frame(root, padding="30")

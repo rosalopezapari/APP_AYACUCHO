@@ -258,11 +258,25 @@ def init_db():
             FOREIGN KEY (id_ciudadano) REFERENCES ciudadano(id_ciudadano)
         )
     """)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS evento_cultural (
+            id_evento INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT NOT NULL,
+            tipo TEXT NOT NULL,
+            provincia TEXT NOT NULL,
+            fecha TEXT NOT NULL,
+            lugar TEXT NOT NULL,
+            descripcion TEXT,
+            precio_entrada REAL NOT NULL DEFAULT 0,
+            organizador TEXT
+        )
+    """)
     seed_destinos(cursor)
     seed_restaurantes(cursor)
     seed_tiendas(cursor)
     seed_transportes(cursor)
     seed_hospedajes(cursor)
+    seed_eventos_culturales(cursor)
     conn.commit()
     conn.close()
 
@@ -314,4 +328,73 @@ def seed_hospedajes(cursor):
             cursor.execute(
                 "INSERT INTO hospedaje (provincia, tipo, nombre, precio_min, precio_max, servicios, telefono) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 h,
+            )
+
+
+EVENTOS_CULTURALES_SEED = [
+    ("Qashwa Mamacha", "Festival", "Huamanga", "2026-01-06", "Plaza de Armas de Ayacucho",
+     "Festival de música andina con huaconadas, danzas y qashwas. Celebración en honor a la Virgen de los Reyes.",
+     0, "Municipalidad de Ayacucho"),
+    ("Semana Santa de Ayacucho", "Ceremonia", "Huamanga", "2026-04-13", "Catedral y calles del centro histórico",
+     "Una de las Semanas Santas más importantes del Perú. Procesiones, pasos, veladas y actos religiosos.",
+     0, "Arquidiócesis de Ayacucho"),
+    ("Fiesta de la Candelaria - Huambo", "Festival", "Huanta", "2026-02-02", "Plaza de Armas de Huambo",
+     "Festival patronal con danzas huantinas, bandas de músicos y corridas de toros.",
+     0, "Municipalidad de Huanta"),
+    ("Tunantada", "Festival", "Huamanga", "2026-02-01", "Barrios de Ayacucho",
+     "Celebración donde jóvenes disfrazados de 'tunas' recorren las calles bailando al son de la banda.",
+     0, "Comités barriales"),
+    ("Peña Los Danzantes del Centro", "Peña", "Huamanga", "2026-07-15", "Local Peña Los Danzantes, Jr. San Martín 450",
+     "Peña tradicional con música en vivo: huaynos, festejos, cumbias andinas. Abierto al público.",
+     10, "Asociación Cultural Los Danzantes"),
+    ("Peña Qorilla", "Peña", "Huamanga", "2026-06-20", "Peña Qorilla, Av. España 800",
+     "Noche de música criolla y andina. Gastronomía típica y pisco sour. Todos los viernes.",
+     15, "Peña Qorilla A.C."),
+    ("Festival de la Vendimia", "Feria", "Víctor Fajardo", "2026-03-15", "Viñedos de Huancapi",
+     "Festival de la uva con degustación de vinos artesanales, alimentación y música.",
+     20, "Asociación de Viñateros"),
+    ("Desfile de la Virgen de la Asunta", "Desfile", "Huamanga", "2026-08-15", "Plaza de Armas y Av. Lima",
+     "Desfile procesional con carrozas, danzas como huaconadas, chunchachas y Compadres.",
+     0, "Cofradía de la Asunta"),
+    ("Feria Artesanal de Navidad", "Feria", "Huamanga", "2026-12-01", "Parque Industrial de Ayacucho",
+     "Feria de artesanía ayacuchana: retablos, cerámica, textiles, chocolates y dulces típicos.",
+     0, "Cámara de Comercio de Ayacucho"),
+    ("Peña Los Hermanos Ayacucho", "Peña", "Huamanga", "2026-05-10", "Local Los Hermanos, Calle San Juan 210",
+     "Peña de música andina en vivo con bandas locales. Degustación de cuy chactado y chicha.",
+     12, "Los Hermanos A.C."),
+    ("Festival Tunanada 2026", "Festival", "Huamanga", "2026-02-01", "Centro Cultural de Ayacucho",
+     "Festival juvenil con bandas de rock, pop y música andina. Presentaciones artísticas y concursos.",
+     25, "Gobierno Regional de Ayacucho"),
+    ("Noche de Velas - Huambo", "Ceremonia", "Huanta", "2026-02-01", "Iglesia de Huambo",
+     "Ceremonia religiosa con velas, cantos y danzas tradicionales huantinas en honor a la Virgen de la Candelaria.",
+     0, "Parroquia de Huambo"),
+    ("Festival del Cuy", "Feria", "Vilcas Huamán", "2026-09-20", "Plaza de Armas de Vilcashuamán",
+     "Festival gastronómico con degustación de preparaciones de cuy, concursos de cocina y música.",
+     15, "Municipalidad de Vilcashuamán"),
+    ("Festival Internacional de la Música", "Concierto", "Huamanga", "2026-10-10", "Teatro Municipal de Ayacucho",
+     "Conciertos de música clásica, criolla, andina e internacional. Artistas nacionales e invitados especiales.",
+     30, "Dirección Regional de Cultura"),
+    ("Peña La Paloma", "Peña", "Huamanga", "2026-08-05", "Peña La Paloma, Jr. O'Higgins 320",
+     "Peña con repertorio de valses criollos, huaynos y festejos. Ambiente familiar. Apertura a las 7pm.",
+     8, "Peña La Paloma"),
+    ("Pascuas de Resurrección", "Ceremonia", "Huamanga", "2026-04-19", "Barrios de Ayacucho",
+     "Celebra la resurrección con fuegos artificiales, pasacalles, bandas de músicos y actividades populares.",
+     0, "Comités barriales"),
+    ("Feria del Chocolate", "Feria", "Huamanga", "2026-11-15", "Plaza Mayor de Ayacucho",
+     "Feria artesanal de chocolate, cacao y dulces. Degustación gratuita, talleres y música en vivo.",
+     0, "Cámara de Turismo"),
+    ("Fiesta de San Juan", "Festival", "La Mar", "2026-06-24", "Ríos y comunidades de San Martín de Tarra",
+     "Fiesta selvática con baños rituales en el río, juane, tacacho y danzas de la selva ayacuchana.",
+     0, "Comunidades de La Mar"),
+]
+
+
+def seed_eventos_culturales(cursor):
+    count = cursor.execute("SELECT COUNT(*) FROM evento_cultural").fetchone()[0]
+    if count == 0:
+        for evento in EVENTOS_CULTURALES_SEED:
+            cursor.execute(
+                "INSERT INTO evento_cultural (nombre, tipo, provincia, fecha, lugar, descripcion, precio_entrada, organizador) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                evento,
             )

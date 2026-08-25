@@ -243,5 +243,22 @@
   "❌ EXCEDE EL PRESUPUESTO": "❌ OVER BUDGET",
   "Aporte a meta '%s'": "Contribution to goal '%s'",
   "Meta '%s' eliminada": "Goal '%s' deleted",
-  "¿Eliminar meta '%s'?": "Delete goal '%s'?"
+  "¿Eliminar meta '%s'?": "Delete goal '%s'?",
+  "Qory Ayacucho - Eventos Culturales y Peñas": "Qory Ayacucho - Cultural Events & Peñas",
+  "Eventos Culturales y Peñas": "Cultural Events & Peñas",
+  "Selecciona un evento": "Select an event",
+  "¿Eliminar evento '%s'?": "Delete event '%s'?",
+  "Gratis": "Free",
+  "Editar Evento": "Edit Event",
+  "Agregar Evento": "Add Event",
+  "Nombre, tipo, provincia, fecha y lugar son obligatorios": "Name, type, province, date and venue are required",
+  "Precio Entrada (S/):": "Ticket Price (S/):",
+  "Organizador:": "Organizer:",
+  "Lugar:": "Venue:",
+  "Recuperar Contraseña": "Recover Password",
+  "Ingresa tu correo electrónico para restablecer tu contraseña:": "Enter your email to reset your password:",
+  "Buscar Cuenta": "Find Account",
+  "Cambiar Contraseña": "Change Password",
+  "No se encontró una cuenta con ese correo electrónico": "No account found with that email",
+  "¿Olvidaste tu contraseña?": "Forgot your password?"
 }
