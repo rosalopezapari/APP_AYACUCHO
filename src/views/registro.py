@@ -39,7 +39,7 @@ class VentanaRegistro:
         self.confirmar_entry = ttk.Entry(frame, width=40, show="*")
         self.confirmar_entry.pack(fill=tk.X, pady=(0, 10))
 
-        ttk.Button(frame, text=_("Registrarse"), command=self.registrar).pack(pady=(15, 5))
+        tk.Button(frame, text=_("CONFIRMAR REGISTRO"), command=self.registrar, font=("Arial", 11, "bold")).pack(pady=20)
         ttk.Button(frame, text=_("Ya tengo cuenta"), command=self.abrir_login, style="Secondary.TButton").pack()
         if volver_callback:
             ttk.Button(frame, text=_("Volver"), command=volver_callback, style="Secondary.TButton").pack(pady=(5, 0))
