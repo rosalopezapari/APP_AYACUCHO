@@ -11,7 +11,7 @@ class VentanaRegistro:
         self.root = root
         self.volver_callback = volver_callback
         self.root.title(_("Qory Ayacucho - Registro"))
-        self.root.geometry("450x400")
+        self.root.geometry("450x500")
         self.root.resizable(False, False)
 
         frame = ttk.Frame(root, padding="20")
