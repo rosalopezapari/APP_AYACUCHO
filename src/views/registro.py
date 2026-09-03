@@ -4,6 +4,7 @@ from src.models.ciudadano import Ciudadano
 from src.models.historial import Historial
 from src.views.login import VentanaLogin
 from src.i18n import _
+from src.theme import COLORS
 
 
 class VentanaRegistro:
@@ -39,7 +40,10 @@ class VentanaRegistro:
         self.confirmar_entry = ttk.Entry(frame, width=40, show="*")
         self.confirmar_entry.pack(fill=tk.X, pady=(0, 10))
 
-        tk.Button(frame, text=_("CONFIRMAR REGISTRO"), command=self.registrar, font=("Arial", 11, "bold")).pack(pady=20)
+        tk.Button(frame, text=_("CONFIRMAR REGISTRO"), command=self.registrar,
+                  font=("Arial", 11, "bold"), bg=COLORS["primary"], fg=COLORS["white"],
+                  activebackground=COLORS["primary_light"], activeforeground=COLORS["white"],
+                  cursor="hand2", relief=tk.FLAT, padx=20, pady=8).pack(pady=20)
         ttk.Button(frame, text=_("Ya tengo cuenta"), command=self.abrir_login, style="Secondary.TButton").pack()
         if volver_callback:
             ttk.Button(frame, text=_("Volver"), command=volver_callback, style="Secondary.TButton").pack(pady=(5, 0))

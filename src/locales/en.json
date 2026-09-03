@@ -260,5 +260,6 @@
   "Buscar Cuenta": "Find Account",
   "Cambiar Contraseña": "Change Password",
   "No se encontró una cuenta con ese correo electrónico": "No account found with that email",
-  "¿Olvidaste tu contraseña?": "Forgot your password?"
+  "¿Olvidaste tu contraseña?": "Forgot your password?",
+  "CONFIRMAR REGISTRO": "CONFIRM REGISTRATION"
 }
