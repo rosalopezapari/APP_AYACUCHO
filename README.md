@@ -1,49 +1,44 @@
-# Qory Ayacucho
+# APP_AYACUCHO - Planifica tu Viaje por Ayacucho con Presupuesto
 
-Aplicación turística para conocer y planificar viajes por las 11 provincias de Ayacucho según tu presupuesto.
+> Aplicación turística inteligente que te ayuda a organizar tu paseo por la región Ayacucho según tu presupuesto.
 
-## Funcionalidades
+### 🎯 Objetivo de la Tesis
+Desarrollar una aplicación web que permita a turistas nacionales y extranjeros planificar su recorrido por las **11 provincias de Ayacucho**, optimizando su presupuesto asignado para transporte, hospedaje, alimentación y tours.
 
-- Registro e inicio de sesión de usuarios
-- Gestión de presupuesto de viaje con desglose de gastos
-- Recomendaciones inteligentes según presupuesto y preferencias
-- CRUD completo: destinos, restaurantes, tiendas, transporte, hospedajes
-- Sistema de reservas con estados (Pendiente / Confirmada / Cancelada)
-- Metas de ahorro con seguimiento de aportes
-- Historial de actividades
-- Exportar datos a CSV y TXT
-- Reportes y estadísticas con gráficos
-- Edición de perfil de usuario
-- Multi-idioma: Español, English, Français, Português
-- Planificador de viaje integrado
+### 🗺️ Provincias Incluidas
+La app cubre TODA la región:
+1. Huamanga
+2. Huanta
+3. La Mar
+4. Cangallo
+5. Vilcas Huamán
+6. Víctor Fajardo
+7. Sucre
+8. Lucanas
+9. Parinacochas
+10. Paucar del Sara Sara
+11. Huanca Sancos
 
-## Tecnologías
+### 💰 Funcionalidades Principales
+- **Calculadora de Presupuesto:** Ingresas tu monto total (Ej: S/. 500) y días de paseo.
+- **Distribución Automática:** La app divide tu presupuesto en: 30% Transporte, 35% Hospedaje, 20% Comida, 15% Tours.
+- **Sugerencia por Provincia:** Cada provincia tiene un costo diario estimado y atractivos turísticos.
+- **Validación:** Te dice si tu presupuesto alcanza o cuánto te falta.
 
-Python 3, Tkinter, SQLite — solo librería estándar.
+### 🛠️ Tecnologías
+- HTML5, CSS3, JavaScript (Frontend)
+- JSON para datos de provincias
+- Git / GitHub
 
-## Provincias incluidas
+### 🚀 Cómo ejecutar
+1. Clonar: `git clone https://github.com/rosalopezapari/APP_AYACUCHO.git`
+2. Abrir `index.html` en el navegador.
 
-Huamanga, Huanta, La Mar, Cangallo, Vilcas Huamán, Víctor Fajardo, Huanca Sancos, Sucre, Lucanas, Parinacochas, Páucar del Sara Sara.
+### 📌 Próximos pasos (Roadmap)
+- [x] README y estructura base
+- [ ] Agregar mapa interactivo de Ayacucho
+- [ ] Agregar fotos y costos reales de cada atractivo
+- [ ] Función para armar ruta de VARIAS provincias con un solo presupuesto
+- [ ] Versión en Python/Flask
 
-## Cómo ejecutar
-
-### Desde el ejecutable
-```
-dist\QoryAyacucho.exe
-```
-O hacer doble clic en `QoryAyacucho.bat`.
-
-### Desde código fuente
-```
-py src/app.py
-```
-
-La base de datos `qory_ayacucho.db` se crea automáticamente en la primera ejecución.
-
-## Documentación
-
-Ver `docs/` para: informe técnico, casos de uso, historias de usuario, modelo de base de datos, investigación de mercado, pitch.
-
-## Licencia
-
-© 2026 Qory Ayacucho
+**Autora:** Rosa Lopez Apari - Tesis 2026
